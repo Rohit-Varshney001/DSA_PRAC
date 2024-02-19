@@ -23,7 +23,7 @@ public class bubble_sort {
         System.out.println("Via. Bubble Sort ::======>>  "+Arrays.toString(arr));
     }
 
-    private void swap(int[] arr, int x, int y) {
+    public static void swap(int[] arr, int x, int y) {
         int temp = arr[x];
         arr[x] = arr[y];
         arr[y] = temp;
