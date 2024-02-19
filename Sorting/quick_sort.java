@@ -1,8 +1,6 @@
 package Sorting;
 
 public class quick_sort {
-
-
 //    Hoare's algorithm corrects inversions. Once there are no more inversions, the smaller index is returned as the pivot.
 //    Lomuto's Algorithm either makes the first or the last element as the pivot. It brings each smaller element to the left one by one.
 
