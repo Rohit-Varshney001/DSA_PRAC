@@ -1,13 +1,11 @@
-import java.util.Arrays;
-
-import Sorting.*;
+import Sorting.Sorting_Questions.*;
 
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {15,3,2,34,234,4,1,32,18};
-        int[] arr1 = {1,2,3,2,1,3,2,1,4,2,1,2,2};
-//        int[] arr2 = {1,2,4,8,9};
+//        int[] arr = {15,3,2,34,234,4,1,32,18};
+        int[] arr1 = {10,20,20,40,60,60,100,100,100};
+        int[] arr2 = {2,3,20,20,20,40,40,40,40,40,60,80,80,90};
 //        new bubble_sort().bubble_sort(arr);
 //        new selection_sort().selection_sort(arr);
 //        new insertion_sort().insertion_sort(arr);
@@ -20,8 +18,16 @@ public class Main {
 //        quick_sort.quickSortLomutoPart(arr,0,arr.length-1);
 //        quick_sort.quickSortHoarePart(arr,0,arr.length-1);
 //        System.out.println(Arrays.toString(arr));
+//        count_sort.CountSortBetterApp(arr1,5);
 
-        count_sort.CountSortBetterApp(arr1,5);
+//        int [] arr = {1,8,12,5,18};
+//        System.out.println(minimum_difference_of_an_array.minDiff(arr));
+
+//        intersection_of_arrays.intersectionArr(arr1,arr2);
+        union_of_arrays.union(arr1,arr2);
+
+
+
 
 
 
