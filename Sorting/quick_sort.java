@@ -10,7 +10,7 @@ public class quick_sort {
 
 //    ===== Lomuto Partition =====      {10,80,30,90,40,50,70(p)}
     public static int lomutoPartition(int [] arr, int l, int h){
-//        bubble_sort.swap(arr,p,h);// if pivot element needed to br take as input
+//        bubble_sort.swap(arr,p,h);// if pivot element needed to be taken as input
         int pivot = arr[h];
         int i = l-1;
         for(int j = l; j<=h-1; j++){
