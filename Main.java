@@ -27,8 +27,16 @@ public class Main {
 
 //        int [] arr = {5,4,3,2,1};
 //        System.out.println(inversion_in_array.countInversion(arr, 0,4));
+//
+//        System.out.println(kth_smallest_in_array.kth_smallest(arr,4));
+        int [] arra = {45,12,-2,-5,45,-623,8,888,32,43,-2,285};
+        int [] arr012 = {0,2,1,0,2,1,0,1,2,1,1,2,0,2,1,2,};
 
-        System.out.println(kth_smallest_in_array.kth_smallest(arr,4));
+        sort_an_array_with_two_types_of_element.segregate_positive_negative(arra);
+        sort_an_array_with_three_types_of_element.sort012Array(arr012);
+        sort_an_array_with_three_types_of_element.sort012(arr012);
+
+
 
 
 
