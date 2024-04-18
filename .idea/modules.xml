@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Circular_Linked_List/Circular_Linked_List.iml" filepath="$PROJECT_DIR$/Circular_Linked_List/Circular_Linked_List.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSA_PRAC.iml" filepath="$PROJECT_DIR$/DSA_PRAC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Linked_List/Linked_List.iml" filepath="$PROJECT_DIR$/Linked_List/Linked_List.iml" />
     </modules>
   </component>
 </project>
