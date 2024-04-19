@@ -21,8 +21,51 @@ public  class Circular_LL_Implemantation {
             System.out.print("->"+curr.val );
         }
 
+    }
 
+    public static Node insertAtBegining(Node head, int data){
+        Node temp = new Node(data);
+        if(head == null){
+            temp.next = temp;
+            return temp;
+        }
+        Node curr = head;
+        while (curr.next != head){
+            curr = curr.next;
+        }
+        curr.next = temp;
+        temp.next = head;
 
+        return temp;
+
+    }
+    public static Node insertAtEnd(Node head, int data){
+        Node temp = new Node(data);
+        if(head == null){
+            temp.next = temp;
+            return temp;
+        }
+        Node curr = head;
+        while (curr.next != head){
+            curr = curr.next;
+        }
+        curr.next = temp;
+        temp.next = head;
+
+        return head;
+
+    }
+
+    public static Node deleteHead(Node head){
+        if (head == null){
+            return null;
+        }
+        Node curr = head;
+        while (curr.next != head){
+            curr = curr.next;
+        }
+        curr.next = head.next;
+        return curr.next;
     }
 
 

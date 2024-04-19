@@ -9,6 +9,18 @@ public class Main {
         temp2.next = head;
 
         Circular_LL_Implemantation.printLinkedListData(head);
+        head = Circular_LL_Implemantation.insertAtBegining(head,9);
+        System.out.println();
+        Circular_LL_Implemantation.printLinkedListData(head);
+
+        head = Circular_LL_Implemantation.insertAtEnd(head,13);
+        System.out.println();
+        Circular_LL_Implemantation.printLinkedListData(head);
+
+        head = Circular_LL_Implemantation.deleteHead(head);
+        System.out.println();
+        Circular_LL_Implemantation.printLinkedListData(head);
+
 
 
     }
