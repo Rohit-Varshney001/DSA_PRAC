@@ -65,6 +65,7 @@ public  class Circular_LL_Implemantation {
             curr = curr.next;
         }
         curr.next = head.next;
+        head.next = null;
         return curr.next;
     }
 
