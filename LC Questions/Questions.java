@@ -20,7 +20,12 @@ public class Questions {
         System.out.println("Maximum profit: "+ BestDayToBuyAndSellStock(new int[]{7,1,5,3,6,4}));
 
 //  ===== 4.) Given an array nums of n integers, return an array of all the unique quadruplets (nums[a], nums[b], nums[c],nums[c]) such that 0<=a,b,c,d<n &&&& a,b,d are distinct  &&&& nums[a] + nums[b] + nums[c] + nums[d] == target .
-        System.out.println(fourSum(arr,1));
+        System.out.println(fourSum(arr,297));
+
+//        5.) Median of two sorted Arrays:
+//                (i) Naive Approach
+        System.out.println(findMedianSortedArraysNaive(new int[]{1,2,3}, new  int []{5,6,7,8}));
+//                (ii) Efficient Approach
 
     }
     private static class ReqOutput {
@@ -134,6 +139,28 @@ public class Questions {
             }
         }
         return result;
+    }
+
+    public static double findMedianSortedArraysNaive(int[] nums1, int[] nums2) {
+        int []arr = new int[nums1.length+nums2.length];
+        int i = 0;
+        for(; i<nums1.length; i++){
+            arr[i] = nums1[i];
+        }
+        for(int j= 0; j<nums2.length; j++){
+            arr[i] = nums2[j];
+            i++;
+        }
+
+        Arrays.sort(arr);
+        double n;
+        if(arr.length % 2 != 0){
+            n = arr[arr.length/2];
+            return n;
+        }else{
+            n = (double)(arr[arr.length/2] + arr[arr.length/2 - 1])/2;
+            return n;
+        }
     }
 
 }
