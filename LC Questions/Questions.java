@@ -23,9 +23,10 @@ public class Questions {
         System.out.println(fourSum(arr,297));
 
 //        5.) Median of two sorted Arrays:
-//                (i) Naive Approach
+//                (i) Normal Approach
         System.out.println(findMedianSortedArraysNaive(new int[]{1,2,3}, new  int []{5,6,7,8}));
-//                (ii) Efficient Approach
+//                (ii) MergeSort Approach
+        System.out.println(findMedianSortedArrays(new int[]{1,2,3}, new  int []{5,6,7,8}));
 
     }
     private static class ReqOutput {
@@ -147,8 +148,8 @@ public class Questions {
         for(; i<nums1.length; i++){
             arr[i] = nums1[i];
         }
-        for(int j= 0; j<nums2.length; j++){
-            arr[i] = nums2[j];
+        for (int k : nums2) {
+            arr[i] = k;
             i++;
         }
 
@@ -156,11 +157,38 @@ public class Questions {
         double n;
         if(arr.length % 2 != 0){
             n = arr[arr.length/2];
-            return n;
         }else{
             n = (double)(arr[arr.length/2] + arr[arr.length/2 - 1])/2;
-            return n;
         }
+        return n;
+    }
+
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2){
+        int [] finalArr = new int[nums1.length+nums2.length];
+
+        int i = 0, j = 0, k = 0;
+        while(i < nums1.length && j<nums2.length){
+            if(nums1[i] < nums2[j]){
+                finalArr[k++] = nums1[i++];
+            }else{
+                finalArr[k++] = nums2[j++];
+            }
+        }
+
+        while(i<nums1.length){
+            finalArr[k++] = nums1[i++];
+        }
+        while(j<nums2.length){
+            finalArr[k++] = nums2[j++];
+        }
+        double n;
+        if(finalArr.length % 2 != 0){
+            n = finalArr[finalArr.length/2];
+        }else{
+            n = (double)(finalArr[finalArr.length/2] + finalArr[finalArr.length/2 - 1])/2;
+        }
+        return n;
+
     }
 
 }
