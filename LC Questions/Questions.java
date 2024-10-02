@@ -28,6 +28,15 @@ public class Questions {
 //                (ii) MergeSort Approach
         System.out.println(findMedianSortedArrays(new int[]{1,2,3}, new  int []{5,6,7,8}));
 
+
+//       (6) 1497. Check If Array Pairs Are Divisible by k
+//        Hint
+//        Given an array of integers arr of even length n and an integer k.
+//        We want to divide the array into exactly n / 2 pairs such that the sum of each pair is divisible by k.
+//        Return true If you can find a way to do that or false otherwise.
+
+        System.out.println(checkCanArrange(new int[]{1,2,3,4,5,10,6,7,8,9} , 5));
+
     }
     private static class ReqOutput {
         int max_sum;
@@ -189,6 +198,28 @@ public class Questions {
         }
         return n;
 
+    }
+    public static boolean checkCanArrange(int [] arr, int k ){
+
+        int [] freqCount = new int[k];
+
+        for(int num : arr){
+            int rem = num % k;
+            if(rem < 0){
+                rem = rem + k;
+            }
+            freqCount[rem]++;
+        }
+
+        if(freqCount[0] % 2 != 0){
+            return false;
+        }
+        for(int i = 1; i < freqCount.length; i++){
+            if(freqCount[i] != freqCount[k-i]){
+                return false;
+            }
+        }
+        return true;
     }
 
 }
