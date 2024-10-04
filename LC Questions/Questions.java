@@ -37,6 +37,9 @@ public class Questions {
 
         System.out.println(checkCanArrange(new int[]{1,2,3,4,5,10,6,7,8,9} , 5));
 
+//        (7) 1657. Determine if Two Strings Are Close
+        System.out.println(closeStrings("abc","bca"));
+
     }
     private static class ReqOutput {
         int max_sum;
@@ -220,6 +223,28 @@ public class Questions {
             }
         }
         return true;
+    }
+
+    public static boolean closeStrings(String word1, String word2) {
+        if(word1.length()!=word2.length()){
+            return false;
+        }
+        int[] letters1 = new int[26];
+        int[] letters2 = new int[26];
+        for (char ch : word1.toCharArray()) {
+            letters1[ch-'a']++;
+        }
+        for (char ch : word2.toCharArray()) {
+            letters2[ch-'a']++;
+        }
+        for(int i = 0; i<letters1.length; i++){
+            if((letters1[i]==0) != (letters2[i]==0)){
+                return false;
+            }
+        }
+        Arrays.sort(letters1);
+        Arrays.sort(letters2);
+        return Arrays.equals(letters1, letters2);
     }
 
 }
