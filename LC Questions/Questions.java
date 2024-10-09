@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Questions {
     public static void main(String[] args) {
@@ -40,6 +37,8 @@ public class Questions {
 //        (7) 1657. Determine if Two Strings Are Close
         System.out.println(closeStrings("abc","bca"));
 
+//        (8) 921. Minimum Add to Make Parentheses Valid
+        System.out.println(minAddToMakeValid("()(()())("));
     }
     private static class ReqOutput {
         int max_sum;
@@ -245,6 +244,23 @@ public class Questions {
         Arrays.sort(letters1);
         Arrays.sort(letters2);
         return Arrays.equals(letters1, letters2);
+    }
+
+    public static int minAddToMakeValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        int invalid = 0;
+        for(char c : s.toCharArray()){
+            if(c == '('){
+                stack.push(c);
+            }else{
+                if(!stack.isEmpty()){
+                    stack.pop();
+                }else{
+                    invalid++;
+                }
+            }
+        }
+        return invalid+stack.size();
     }
 
 }
