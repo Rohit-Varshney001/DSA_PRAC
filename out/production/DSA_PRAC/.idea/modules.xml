@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Circular_Linked_List/Circular_Linked_List.iml" filepath="$PROJECT_DIR$/Circular_Linked_List/Circular_Linked_List.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSA_PRAC.iml" filepath="$PROJECT_DIR$/DSA_PRAC.iml" />
       <module fileurl="file://$PROJECT_DIR$/Linked_List/Linked_List.iml" filepath="$PROJECT_DIR$/Linked_List/Linked_List.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Monotonic_Stack/Monotonic_Stack.iml" filepath="$PROJECT_DIR$/Monotonic_Stack/Monotonic_Stack.iml" />
     </modules>
   </component>
 </project>
