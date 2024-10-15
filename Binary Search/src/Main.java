@@ -261,17 +261,9 @@ public class Main {
                     start = mid+1;
                 }
             }else if(mid == 0){
-                if(arr[mid]>arr[mid+1]){
-                    return arr[mid];
-                }else{
-                    return arr[mid+1];
-                }
+                return Math.max(arr[mid], arr[mid + 1]);
             }else{
-                if(arr[mid] > arr[mid-1]){
-                    return arr[mid];
-                }else{
-                    return arr[mid-1];
-                }
+                return Math.max(arr[mid], arr[mid - 1]);
             }
         }
 
