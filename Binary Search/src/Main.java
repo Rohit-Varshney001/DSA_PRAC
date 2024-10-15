@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         int arr[] = {2,3,4,6,7,9,11,22,34,54};
@@ -8,8 +10,15 @@ public class Main {
         System.out.println(FirstOccurrence(new int[]{10,10,10,18,20},10));
         System.out.println(LastOccurrence(new int[]{10,10,10,18,20},10));
         System.out.println(CountOfElement(new int[]{1,10,10,10,18,20},18));
+        System.out.println(noOfTimesArrayRotated(new int[]{10,20,30,40,50,1,2,3,4}));
         System.out.println(floor(new int[]{1,10,10,10,18,20},17));
         System.out.println(ceil(new int[]{1,10,10,10,18,20},17));
+        System.out.println(findElementInSortedArray(new int[]{10,20,30,40,50,1,2,3,4},4));
+        System.out.println(SearchingInInfiniteAray(new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13},7));
+        System.out.println(indexOfFirstOneInInfiniteSortedBinaryArray(new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1}));
+//Find minimum difference between any two elements (pair) in given array
+        System.out.println(MinimumDifferenceElementInSortedArray(arr,20));
+
 
     }
 
@@ -126,6 +135,116 @@ public class Main {
         return res;
     }
 
+    public static int noOfTimesArrayRotated(int []arr){
+        int start = 0, end = arr.length-1;
+        if(arr[start]<arr[end]) return 0;
+        while(start <= end){
+            int mid = start + (end-start)/2;
+            int next = (mid+1) % arr.length;
+            int prev = (mid+arr.length -1) % arr.length;
+            if(arr[mid]<=arr[next] && arr[mid] <= arr[prev] ){
+                return arr.length-mid;
+            }else if(arr[end] <= arr[mid]){
+                start = mid+1;
+            }else {
+                end = mid-1;
+            }
+        }
+        return 0;
+    }
+    public static int indexOfMinimumElementInRotatedArr(int []arr){
+        int start = 0, end = arr.length-1;
+        if(arr[start]<arr[end]) return 0;
+        while(start <= end){
+            int mid = start + (end-start)/2;
+            int next = (mid+1) % arr.length;
+            int prev = (mid+arr.length -1) % arr.length;
+            if(arr[mid]<=arr[next] && arr[mid] <= arr[prev] ){
+                return mid;
+            }else if(arr[end] <= arr[mid]){
+                start = mid+1;
+            }else {
+                end = mid-1;
+            }
+        }
+        return 0;
+    }
 
+    public static int findElementInSortedArray(int[] arr, int val) {
+        int n = arr.length;
+        int minIndex = indexOfMinimumElementInRotatedArr(arr);
+
+        // Check if the element is at the minimum index
+        if (arr[minIndex] == val) {
+            return minIndex;
+        }
+
+        // Perform binary search on the left part (0 to minIndex - 1)
+        int leftSearch = BinarySearch(Arrays.copyOfRange(arr, 0, minIndex), val);
+        if (leftSearch != -1) {
+            return leftSearch;
+        }
+
+        // Perform binary search on the right part (minIndex to n - 1)
+        int rightSearch = BinarySearch(Arrays.copyOfRange(arr, minIndex, n), val);
+        if (rightSearch != -1) {
+            return minIndex + rightSearch;  // Adjust index for the second half
+        }
+
+        return -1;
+    }
+
+    public static int SearchingInInfiniteAray(int [] arr, int val){
+        int low = 0, end = 1;
+
+        while(val > arr[end]){
+            low = end;
+            end = end*2;
+        }
+        return low + BinarySearch(Arrays.copyOfRange(arr,low,end),val);
+    }
+    public static int indexOfFirstOneInInfiniteSortedBinaryArray(int [] arr){
+        int start = 0, end = 1;
+        while(1>arr[end]){
+            start = end;
+            end = end*2;
+        }
+        System.out.println("end"+end);
+        System.out.println("start"+start);
+        int res = -1;
+        while(start <= end){
+            int mid = start + (end-start)/2;
+            if(arr[mid] == 1){
+                System.out.println("mid"+mid);
+                res = mid;
+                end = mid-1;
+            }
+            if(1<arr[mid]){
+                end = mid-1;
+            }else{
+                start = mid+1;
+            }
+        }
+        return res;
+    }
+    public static int MinimumDifferenceElementInSortedArray(int [] arr, int key){
+        int high = arr.length-1, low = 0;
+        while(low<=high){
+            int mid = low+(high-low)/2;
+            if(arr[mid] == key) return arr[mid];
+            if(key<arr[mid]){
+                high = mid-1;
+            }else{
+                low = mid+1;
+            }
+        }
+
+        System.out.println("floor = "+arr[high]);
+        System.out.println("ceil = "+arr[low]);
+        if(arr[high] - key > arr[low]-key){
+            return arr[high];
+        }
+        return arr[low];
+    }
 
 }
