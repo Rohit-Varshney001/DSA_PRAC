@@ -18,6 +18,7 @@ public class Main {
         System.out.println(indexOfFirstOneInInfiniteSortedBinaryArray(new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1}));
 //Find minimum difference between any two elements (pair) in given array
         System.out.println(MinimumDifferenceElementInSortedArray(arr,20));
+        System.out.println(peakElement(new int[]{1,2,1}));
 
 
     }
@@ -245,6 +246,37 @@ public class Main {
             return arr[high];
         }
         return arr[low];
+    }
+
+    public static int peakElement(int [] arr){
+        int start = 0, end = arr.length-1;
+        while (start<=end){
+            int mid = start + (end-start)/2;
+            if(mid>0 && mid<arr.length-1){
+                if(arr[mid] > arr[mid+1] && arr[mid] > arr[mid-1]){
+                    return arr[mid];
+                }else if(arr[mid-1] > arr[mid]){
+                    end = mid-1;
+                }else{
+                    start = mid+1;
+                }
+            }else if(mid == 0){
+                if(arr[mid]>arr[mid+1]){
+                    return arr[mid];
+                }else{
+                    return arr[mid+1];
+                }
+            }else{
+                if(arr[mid] > arr[mid-1]){
+                    return arr[mid];
+                }else{
+                    return arr[mid-1];
+                }
+            }
+        }
+
+
+        return -1;
     }
 
 }
