@@ -2,8 +2,8 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int arr[] = {2,3,4,6,7,9,11,22,34,54};
-        int arr2[] = {55,45,36,23,20,11,9,8,6,4,3,2,1};
+        int [] arr = {2,3,4,6,7,9,11,22,34,54};
+        int [] arr2 = {55,45,36,23,20,11,9,8,6,4,3,2,1};
         System.out.println("Hello world!");
         System.out.println(BinarySearch(arr,2));
         System.out.println(BinarySearchUnknownSorted(arr2,3));
@@ -19,6 +19,7 @@ public class Main {
 //Find minimum difference between any two elements (pair) in given array
         System.out.println(MinimumDifferenceElementInSortedArray(arr,20));
         System.out.println(peakElement(new int[]{1,2,1}));
+        System.out.println(maxInBitonicArray(new int[]{1,2,1}));
 
 
     }
@@ -264,6 +265,27 @@ public class Main {
                 return Math.max(arr[mid], arr[mid + 1]);
             }else{
                 return Math.max(arr[mid], arr[mid - 1]);
+            }
+        }
+        return -1;
+    }
+    public static int maxInBitonicArray(int [] arr){ //Peak Element ===== Bitonic Array => [1,2,3,4,5,3,1] increasing then decreasing
+        int start = 0, end = arr.length-1;
+
+        while(start<=end){
+            int mid = start + (end-start)/2;
+            if(mid >0 && mid<arr.length-1){
+                if(arr[mid] > arr[mid+1] && arr[mid]>arr[mid-1]){
+                    return arr[mid];
+                }else if(arr[mid-1] > arr[mid]){
+                    end = mid-1;
+                }else{
+                    start = mid+1;
+                }
+            } else if (mid == 0) {
+               return Math.max(arr[mid],arr[mid+1]);
+            }else{
+                return Math.max(arr[mid], arr[mid-1]);
             }
         }
 
