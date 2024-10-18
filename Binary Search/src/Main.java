@@ -20,6 +20,10 @@ public class Main {
         System.out.println(MinimumDifferenceElementInSortedArray(arr,20));
         System.out.println(peakElement(new int[]{1,2,1}));
         System.out.println(maxInBitonicArray(new int[]{1,2,1}));
+        System.out.println(searchInBitonicArray(new int[]{1,2,1},2));
+        int[][] arr3 = { { 10, 20,30,40 }, { 15, 25,35,45 },{27,29,37,45},{32,33,39,50} };
+        System.out.println(Arrays.toString(SearchInRowWiseAndColumnWiseSortedArray(arr3, 25)));
+        System.out.println(AllocateMinimumNumberOfPages(new int[]{10,20,30,40},2));
 
 
     }
@@ -292,26 +296,94 @@ public class Main {
 
         return -1;
     }
-
-    public static int SearchInBitonicArray(int [] arr, int val){
-        int start = 0, end = arr.length;
-        while (start<=end){
-            int mid = start + (end - start)/2;
-            if(mid >0 && mid<arr.length-1){
-                if(arr[mid] > arr[mid+1] && arr[mid]>arr[mid-1]){
-                    return mid;
-                }else if(arr[mid-1] > arr[mid]){
+    public static int BinarySearchWithFlag(int [] arr, int target, boolean isAscending, int start, int end){
+        while(start < end){
+            int mid = start + (end-start)/2;
+            if(arr[mid] == target) return mid;
+            if(isAscending){
+                if(arr[mid] < target){
+                    start = mid+1;
+                }else{
+                    end = mid-1;
+                }
+            }
+            else{
+                if(arr[mid] < target){
                     end = mid-1;
                 }else{
                     start = mid+1;
                 }
-            } else if (mid == 0) {
-                return Math.max(arr[mid],arr[mid+1]);
-            }else{
-                return Math.max(arr[mid], arr[mid-1]);
             }
+
         }
         return -1;
+    }
+
+    public static int searchInBitonicArray(int [] arr, int val){
+        int max_Index = maxInBitonicArray(arr);
+        int ascendingCheck = BinarySearchWithFlag(arr,val,true,0,max_Index);
+        if(ascendingCheck != -1){
+            return ascendingCheck;
+        }else{
+            return BinarySearchWithFlag(arr,val,false,max_Index,arr.length-1);
+        }
+    }
+
+    public static int [] SearchInRowWiseAndColumnWiseSortedArray(int [][] arr, int val){
+        int i = 0, j = arr[0].length-1;
+        while(i>=0 && i < arr.length && j>=0 && j<arr[0].length){
+            if(arr[i][j] == val){
+                return new int[]{i,j};
+            }else if(arr[i][j] > val){
+                j--;
+            }else{
+                i++;
+            }
+        }
+        return new int[]{-1,-1};
+    }
+    public static int AllocateMinimumNumberOfPages(int [] arr, int k){
+        int sum = 0;
+        if(arr.length-1 < k){
+            return -1;
+        }
+        for(int i : arr){
+            sum = sum + i;
+        }
+        int start = 0, end = sum;
+        int res = -1;
+        while (start <= end){
+            int mid = start + (end - start)/2;
+            if(checkValidMid(arr,mid,k)){
+                res = mid;
+                end = mid-1;
+            }else{
+                start = mid+1;
+            }
+        }
+
+//    arr = [10,20,30,40] k = 2
+
+
+        return res;
+    }
+    public static boolean checkValidMid(int [] arr, int mid, int k){
+        int count = 1;
+        int sum = 0;
+        for(int i = 0; i<arr.length;i++){
+
+            sum += arr[i];
+            if(sum > mid){
+                sum = arr[i];
+                count++;
+            }
+            if(count > k){
+                return false;
+            }
+        }
+
+
+        return true;
     }
 
 }
