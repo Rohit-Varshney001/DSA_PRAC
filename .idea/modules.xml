@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/Linked_List/Linked_List.iml" filepath="$PROJECT_DIR$/Linked_List/Linked_List.iml" />
       <module fileurl="file://$PROJECT_DIR$/Monotonic_Stack/Monotonic_Stack.iml" filepath="$PROJECT_DIR$/Monotonic_Stack/Monotonic_Stack.iml" />
       <module fileurl="file://$PROJECT_DIR$/Recursion/Recursion.iml" filepath="$PROJECT_DIR$/Recursion/Recursion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sliding window/Sliding window.iml" filepath="$PROJECT_DIR$/Sliding window/Sliding window.iml" />
     </modules>
   </component>
 </project>
