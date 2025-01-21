@@ -1,4 +1,3 @@
-import java.sql.Struct;
 
 public class Linked_list_implementation {
     public static class Node{
@@ -241,6 +240,33 @@ public class Linked_list_implementation {
             }
         }
 
+
+    }
+
+    public static Node rotateList(Node head, int k){
+        if(k == 0 || head == null){
+            return head;
+        }
+        int len = 1;
+        Node curr = head;
+        while(curr.next != null){
+            curr=curr.next;
+            len++;
+        }
+        k %= len;
+
+        if(k == 0) return head;
+//        make list circular;
+        curr.next = head;
+
+        for (int i = 0; i<k; i++){
+            curr = curr.next;
+//            Break loop at k.
+        }
+        head = curr.next;
+        curr.next = null;
+
+        return head;
 
     }
 

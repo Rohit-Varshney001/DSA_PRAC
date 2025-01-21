@@ -51,6 +51,9 @@ public class Main {
         System.out.println("======================");
         Linked_list_implementation.printLinkedListData(head);
 
+        head = Linked_list_implementation.rotateList(head,2);
+        System.out.println("Rotated ======================");
+        Linked_list_implementation.printLinkedListData(head);
 
 
 
