@@ -17,7 +17,7 @@ public class Knapsack0_1 {
 
 //    Knapsack 0/1 ----> Memorization
 
-    public int knapsackDP(int [] wt, int [] val,int [][] dp, int w, int n){
+    public int knapsackRecDp(int [] wt, int [] val, int [][] dp, int w, int n){
         if(n==0 || w==0){
             return 0;
         }
@@ -25,10 +25,28 @@ public class Knapsack0_1 {
             return dp[n][w];
         }
         if(wt[n-1] <= w){
-            return dp[n][w] = Math.max(val[n-1] + knapsackDP(wt,val,dp,w-wt[n-1],n-1), knapsackDP(wt,val,dp,w,n-1));
+            return dp[n][w] = Math.max(val[n-1] + knapsackRecDp(wt,val,dp,w-wt[n-1],n-1), knapsackRecDp(wt,val,dp,w,n-1));
         }else{
-            return dp[n][w] = knapsackDP(wt,val,dp,w,n-1);
+            return dp[n][w] = knapsackRecDp(wt,val,dp,w,n-1);
         }
     }
+
+    public int knapsackDP(int [] wt, int [] val, int w, int n){
+        int [][] dp = new int[n+1][w+1];
+
+        for(int i = 1; i<n+1; i++){
+            for(int j = 1; j<w+1; j++){
+                if(wt[i-1] <= j){
+                    dp[i][j] = Math.max(val[i-1] + dp[i-1][j-wt[i-1]], dp[i-1][j]);
+                }else{
+                    dp[i][j] = dp[i-1][j];
+                }
+            }
+        }
+        return dp[n][w];
+
+    }
+
+
 
 }

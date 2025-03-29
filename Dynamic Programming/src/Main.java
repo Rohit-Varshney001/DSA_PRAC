@@ -17,7 +17,8 @@ public class Main {
         for (int[] row : DP) {
             Arrays.fill(row, -1);
         }
-        System.out.println("Maximum value: " + knapsack01.knapsackDP(wt, val, DP, W, n));
+        System.out.println("Maximum value: " + knapsack01.knapsackRecDp(wt, val, DP, W, n));
+        System.out.println("Maximum value: " + knapsack01.knapsackDP(wt, val, W, n));
 
 
 
