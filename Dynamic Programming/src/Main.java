@@ -20,6 +20,12 @@ public class Main {
         System.out.println("Maximum value: " + knapsack01.knapsackRecDp(wt, val, DP, W, n));
         System.out.println("Maximum value: " + knapsack01.knapsackDP(wt, val, W, n));
 
+//  ======= Subset Sum =======
+        int[] arr = {3, 34, 4, 12, 5, 2};
+        int sum = 9;
+
+        System.out.println("Subset Sum : " + knapsack01.subsetSum(arr,sum));
+
 
 
     }
