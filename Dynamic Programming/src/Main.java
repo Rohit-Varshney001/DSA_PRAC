@@ -26,6 +26,10 @@ public class Main {
 
         System.out.println("Subset Sum : " + knapsack01.subsetSum(arr,sum));
 
+//  ======== Equal Sum Partition ==========
+        int[] arr2 = {1, 5, 11, 5};
+        System.out.println("Equal Sum Partition: " + knapsack01.equalSumPartition(arr2));
+
 
 
     }
