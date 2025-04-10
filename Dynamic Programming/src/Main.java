@@ -29,8 +29,9 @@ public class Main {
 //  ======== Equal Sum Partition ==========
         int[] arr2 = {1, 5, 11, 5};
         System.out.println("Equal Sum Partition: " + knapsack01.equalSumPartition(arr2));
-
-
+//  ======= count subset with sum k ======
+        int[] arr3 = {2,3,5,6,8,10};
+        System.out.println("count Subset with sum k " + knapsack01.countSubsetWithSumK(arr3,10));
 
     }
 
