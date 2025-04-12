@@ -33,6 +33,10 @@ public class Main {
         int[] arr3 = {2,3,5,6,8,10};
         System.out.println("count Subset with sum k " + knapsack01.countSubsetWithSumK(arr3,10));
 
+
+//  ======= Minimum subset sum diff========
+        int [] arr4 = {1,3,7};
+        System.out.println("Minimum subset sum diff : " + knapsack01.minSubsetSumDiff(arr4));
     }
 
 }
