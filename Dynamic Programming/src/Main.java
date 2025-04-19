@@ -37,6 +37,15 @@ public class Main {
 //  ======= Minimum subset sum diff========
         int [] arr4 = {1,3,7};
         System.out.println("Minimum subset sum diff : " + knapsack01.minSubsetSumDiff(arr4));
+
+//  ======= Number Of Subset with the given difference =======
+        int [] arr5 = {1,1,2,3};
+        int diff = 1;
+        System.out.println("Number of subsets with given difference: " + knapsack01.subSetWithGivenDiff(arr5,diff));
+
+//  ====== Target Sum =====
+        System.out.println("Target Sum : "+ knapsack01.targetSum(arr5,diff));
+
     }
 
 }
